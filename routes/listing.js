@@ -9,7 +9,7 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 //search
-router.get("/search", isLoggedIn, wrapAsync(listingController.searchData));
+router.get("/search", wrapAsync(listingController.searchData));
 //Index Route
 router.get("/", wrapAsync(listingController.index));
 
