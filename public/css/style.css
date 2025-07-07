@@ -1,0 +1,293 @@
+/* General Body and Container Styling */
+body {
+    margin: 0 !important;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Uncomment if you need to override Bootstrap's default row margins */
+/* .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+} */
+
+.title-one {
+    margin-left: 0.5rem;
+}
+
+.container-fluid {
+    flex: 1; /* Allows content to grow and push footer down */
+    /* Added default padding for all screen sizes */
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Override for md and up if px-md-5 is desired for larger screens */
+@media (min-width: 768px) { /* Bootstrap's md breakpoint */
+    .container-fluid {
+        padding-left: 3rem; /* px-md-5 is 3rem */
+        padding-right: 3rem;
+    }
+}
+
+
+/* --- Navbar Styling --- */
+.navbar {
+    height: 4.6rem;
+    background-color: white !important;
+    align-items: center;
+}
+
+.fa-compass {
+    margin-left: 0.5rem;
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* --- Search Navbar Styling --- */
+.search-btn {
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem; /* Your specified padding */
+}
+
+.search-btn:hover {
+    background-color: #fe424d; /* Ensure hover color remains the same */
+    color: white;
+}
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-input {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem; /* Your specified padding */
+    font-size: 1rem; /* Your specified font-size */
+}
+
+/* Custom CSS to center the search form within the navbar */
+/* This media query aligns with Bootstrap's 'lg' breakpoint for navbar-expand-lg */
+@media (min-width: 992px) {
+    .search-form-container { /* This class should be on the div wrapping your search form */
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px; /* Example max-width, adjust as needed */
+    }
+
+    .search-form-container form.d-flex {
+        width: 100%; /* Make the form itself take full width of its search-form-container */
+        justify-content: center; /* Center the input/button inside the form if they don't fill 100% */
+    }
+}
+
+
+/* --- Filters Section Styling --- */
+/* Optimized for horizontal scrolling on mobile */
+#filters {
+    display: flex;
+    flex-wrap: nowrap !important; /* Forces filters to stay on one line - Added !important */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-snap-type: x mandatory; /* Snaps to filter items */
+    justify-content: flex-start; /* Align filters to the start */
+    padding: 1rem 0; /* Vertical padding */
+    margin-bottom: 1.5rem; /* Space below filters */
+    gap: 1.5rem; /* Space between filter items */
+    padding-left: 1rem; /* Add padding to the left so the first filter isn't flush */
+    padding-right: 1rem; /* Add padding to the right for scrollable content */
+}
+
+/* Hide scrollbar for a cleaner look */
+#filters::-webkit-scrollbar {
+    display: none;
+}
+#filters {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.filter {
+    flex-shrink: 0; /* Prevents filters from shrinking */
+    text-align: center;
+    margin-top: 0.3rem;
+    /* Removed margin-right: 2.5rem; as gap handles spacing now */
+    opacity: 0.7;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.5rem; /* Added padding for better touch target */
+    border-radius: 0.5rem; /* Added border-radius for visual consistency */
+    transition: all 0.2s ease-in-out; /* Added transition for hover effect */
+    scroll-snap-align: start; /* Snap alignment for horizontal scrolling */
+    min-width: 80px; /* Ensures minimum width for each filter */
+}
+
+.filter:hover {
+    opacity: 1;
+    background-color: #f0f0f0;
+    border-color: #e0e0e0;
+}
+
+.filter > div {
+    font-size: 1.8rem; /* Your specified font-size */
+    margin-bottom: 0.25rem; /* Added small margin below icon */
+    color: #555; /* Default icon color */
+}
+
+.filter p {
+    font-size: 0.8rem; /* Your specified font-size */
+    margin: 0; /* Reset margin for paragraph */
+    color: #333;
+}
+
+/* Active filter state (optional, for when a filter is selected) */
+.filter.active {
+    background-color: #fe424d; /* Example active background */
+    color: white;
+}
+.filter.active > div,
+.filter.active p {
+    color: white; /* White icons and text for active state */
+}
+
+/* --- Tax Toggle Styling --- */
+.tax-info {
+    display: none; /* Your specified default display */
+}
+
+.tax-toggle {
+    border: 1px solid black; /* Your specified border */
+    height: 3rem; /* Your specified height */
+    border-radius: 8px; /* Your specified border-radius */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem; /* Your specified padding */
+    flex-shrink: 0; /* Prevent from shrinking */
+    margin-left: auto; /* Push to the right within the filters container */
+    margin-top: 0.3rem; /* Align with other filters */
+}
+
+.tax-toggle .form-check-input {
+    margin-right: 0.5rem; /* Space between switch and label */
+    transform: scale(1.2); /* Slightly larger switch for touch */
+}
+
+.tax-toggle label {
+    font-size: 0.9rem; /* Adjust label size */
+    white-space: nowrap; /* Prevent label from wrapping */
+}
+
+
+/* --- Footer Styling --- */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Corrected from 'space-evenly' to 'center' for align-items */
+}
+
+/* --- Cards Styling --- */
+.card-listing {
+    border: none !important;
+    margin-bottom: 2rem; /* Your specified margin */
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important; /* Changed from 97% to 100% for better responsiveness */
+    object-fit: cover !important;
+    height: 20rem; /* Your specified height */
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text {
+    font-weight: 400;
+}
+
+/* listing-links */
+.listing-link {
+    text-decoration: none;
+    color: #222222;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* --- New page button --- */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* --- Show page styling --- */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.btnedit {
+    margin-right: 1rem !important;
+}
+
+/* --- Map Styling --- */
+#map {
+    margin-left: 0.3rem;
+    height: 360px;
+    width: 100%; /* Changed from 100vh to 100% for responsiveness */
+    border-radius: 0.5rem;
+}
+
+/* Bootstrap's responsive column classes are already good for cards */
+/* No changes to row-cols-* or g-* classes as per "do not change sizes" */
